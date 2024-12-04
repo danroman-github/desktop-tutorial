@@ -15,7 +15,7 @@ class Student:
             else:
                 lecturer.grades[course] = [grade]
         else:
-            return 'Ошибка'
+            return 'РћС€РёР±РєР°'
 
     def average_grade(self):
         if self.grades:
@@ -27,11 +27,11 @@ class Student:
         avg_grade = self.average_grade()
         courses_in_progress = ', '.join(self.courses_in_progress)
         finished_courses = ', '.join(self.finished_courses)
-        return (f'Имя: {self.name}\n'
-                f'Фамилия: {self.surname}\n'
-                f'Средняя оценка за домашние задания: {avg_grade:.1f}\n'
-                f'Курсы в процессе изучения: {courses_in_progress}\n'
-                f'Завершенные курсы: {finished_courses}')
+        return (f'РРјСЏ: {self.name}\n'
+                f'Р¤Р°РјРёР»РёСЏ: {self.surname}\n'
+                f'РЎСЂРµРґРЅСЏСЏ РѕС†РµРЅРєР° Р·Р° РґРѕРјР°С€РЅРёРµ Р·Р°РґР°РЅРёСЏ: {avg_grade:.1f}\n'
+                f'РљСѓСЂСЃС‹ РІ РїСЂРѕС†РµСЃСЃРµ РёР·СѓС‡РµРЅРёСЏ: {courses_in_progress}\n'
+                f'Р—Р°РІРµСЂС€РµРЅРЅС‹Рµ РєСѓСЂСЃС‹Г»: {finished_courses}')
 
     def __lt__(self, other):
         if isinstance(other, Student):
@@ -59,10 +59,10 @@ class Reviewer(Mentor):
             else:
                 student.grades[course] = [grade]
         else:
-            return 'Ошибка'
+            return 'ГЋГёГЁГЎГЄГ '
 
     def __str__(self):
-        return f'Имя: {self.name}\nФамилия: {self.surname}'
+        return f'Г€Г¬Гї: {self.name}\nГ”Г Г¬ГЁГ«ГЁГї: {self.surname}'
 
 
 class Lecturer(Mentor):
@@ -78,9 +78,9 @@ class Lecturer(Mentor):
 
     def __str__(self):
         avg_grade = self.average_grade()
-        return (f'Имя: {self.name}\n'
-                f'Фамилия: {self.surname}\n'
-                f'Средняя оценка за лекции: {avg_grade:.1f}')
+        return (f'Г€Г¬Гї: {self.name}\n'
+                f'Г”Г Г¬ГЁГ«ГЁГї: {self.surname}\n'
+                f'Г‘Г°ГҐГ¤Г­ГїГї Г®Г¶ГҐГ­ГЄГ  Г§Г  Г«ГҐГЄГ¶ГЁГЁ: {avg_grade:.1f}')
 
     def __lt__(self, other):
         if isinstance(other, Lecturer):
@@ -93,7 +93,7 @@ class Lecturer(Mentor):
         return NotImplemented
 
 
-# Функции для подсчета средней оценки
+# Г”ГіГ­ГЄГ¶ГЁГЁ Г¤Г«Гї ГЇГ®Г¤Г±Г·ГҐГІГ  Г±Г°ГҐГ¤Г­ГҐГ© Г®Г¶ГҐГ­ГЄГЁ
 def average_student_grade(students, course):
     total_grades = 0
     count = 0
@@ -114,28 +114,28 @@ def average_lecturer_grade(lecturers, course):
     return total_grades / count if count > 0 else 0
 
 
-# Создание экземпляров классов
-student1 = Student('Иван', 'Иванов', 'мужской')
+# Г‘Г®Г§Г¤Г Г­ГЁГҐ ГЅГЄГ§ГҐГ¬ГЇГ«ГїГ°Г®Гў ГЄГ«Г Г±Г±Г®Гў
+student1 = Student('Г€ГўГ Г­', 'Г€ГўГ Г­Г®Гў', 'Г¬ГіГ¦Г±ГЄГ®Г©')
 student1.courses_in_progress += ['Python', 'Git']
-student1.finished_courses += ['Введение в программирование']
+student1.finished_courses += ['Г‚ГўГҐГ¤ГҐГ­ГЁГҐ Гў ГЇГ°Г®ГЈГ°Г Г¬Г¬ГЁГ°Г®ГўГ Г­ГЁГҐ']
 
-student2 = Student('Мария', 'Машкова', 'женский')
+student2 = Student('ГЊГ Г°ГЁГї', 'ГЊГ ГёГЄГ®ГўГ ', 'Г¦ГҐГ­Г±ГЄГЁГ©')
 student2.courses_in_progress += ['Python', 'Git']
-student2.finished_courses += ['Введение в программирование']
+student2.finished_courses += ['Г‚ГўГҐГ¤ГҐГ­ГЁГҐ Гў ГЇГ°Г®ГЈГ°Г Г¬Г¬ГЁГ°Г®ГўГ Г­ГЁГҐ']
 
-reviewer1 = Reviewer('Руслан', 'Великов')
+reviewer1 = Reviewer('ГђГіГ±Г«Г Г­', 'Г‚ГҐГ«ГЁГЄГ®Гў')
 reviewer1.courses_attached += ['Python']
 
-reviewer2 = Reviewer('Елена', 'Петрова')
+reviewer2 = Reviewer('Г…Г«ГҐГ­Г ', 'ГЏГҐГІГ°Г®ГўГ ')
 reviewer2.courses_attached += ['Git']
 
-lecturer1 = Lecturer('Александр', 'Савин')
+lecturer1 = Lecturer('ГЂГ«ГҐГЄГ±Г Г­Г¤Г°', 'Г‘Г ГўГЁГ­')
 lecturer1.courses_attached += ['Python']
 
-lecturer2 = Lecturer('Кирилл', 'Сафонов')
+lecturer2 = Lecturer('ГЉГЁГ°ГЁГ«Г«', 'Г‘Г ГґГ®Г­Г®Гў')
 lecturer2.courses_attached += ['Git']
 
-# Студенты оценивают лекции
+# Г‘ГІГіГ¤ГҐГ­ГІГ» Г®Г¶ГҐГ­ГЁГўГ ГѕГІ Г«ГҐГЄГ¶ГЁГЁ
 reviewer1.rate_hw(student1, 'Python', 10)
 reviewer1.rate_hw(student1, 'Git', 8)
 reviewer1.rate_hw(student1, 'Python', 9)
@@ -145,7 +145,7 @@ reviewer1.rate_hw(student2, 'Git', 9)
 reviewer1.rate_hw(student2, 'Python', 9)
 reviewer1.rate_hw(student2, 'Git', 10)
 
-# Лекторы ставят оценки студентам
+# Г‹ГҐГЄГІГ®Г°Г» Г±ГІГ ГўГїГІ Г®Г¶ГҐГ­ГЄГЁ Г±ГІГіГ¤ГҐГ­ГІГ Г¬
 student1.rate_lecturer(lecturer1, 'Python', 10)
 student1.rate_lecturer(lecturer1, 'Git', 8)
 student2.rate_lecturer(lecturer1, 'Python', 6)
@@ -155,7 +155,7 @@ student1.rate_lecturer(lecturer2, 'Git', 7)
 student2.rate_lecturer(lecturer2, 'Python', 10)
 student1.rate_lecturer(lecturer2, 'Git', 8)
 
-# Подсчет средней оценки
+# ГЏГ®Г¤Г±Г·ГҐГІ Г±Г°ГҐГ¤Г­ГҐГ© Г®Г¶ГҐГ­ГЄГЁ
 students = [student1, student2]
 lecturers = [lecturer1, lecturer2]
 
@@ -163,26 +163,26 @@ avg_student_grade = average_student_grade(students, 'Python')
 avg_lecturer_grade = average_lecturer_grade(lecturers, 'Python')
 
 
-# Вывод информации
-print(f'Студент:\n{student1} \n')
-print(f'Студент:\n{student2} \n')
-print(f'Эксперт:\n{reviewer1} \n')
-print(f'Эксперт:\n{reviewer2} \n')
-print(f'Лектор:\n{lecturer1} \n')
-print(f'Лектор:\n{lecturer2} \n')
+# Г‚Г»ГўГ®Г¤ ГЁГ­ГґГ®Г°Г¬Г Г¶ГЁГЁ
+print(f'Г‘ГІГіГ¤ГҐГ­ГІ:\n{student1} \n')
+print(f'Г‘ГІГіГ¤ГҐГ­ГІ:\n{student2} \n')
+print(f'ГќГЄГ±ГЇГҐГ°ГІ:\n{reviewer1} \n')
+print(f'ГќГЄГ±ГЇГҐГ°ГІ:\n{reviewer2} \n')
+print(f'Г‹ГҐГЄГІГ®Г°:\n{lecturer1} \n')
+print(f'Г‹ГҐГЄГІГ®Г°:\n{lecturer2} \n')
 
-print(f'\nСредняя оценка студентов за лекции Python: {avg_student_grade:.1f}')
-print(f'Средняя оценка лекторов за домашние задания: {avg_lecturer_grade:.1f}')
+print(f'\nГ‘Г°ГҐГ¤Г­ГїГї Г®Г¶ГҐГ­ГЄГ  Г±ГІГіГ¤ГҐГ­ГІГ®Гў Г§Г  Г«ГҐГЄГ¶ГЁГЁ Python: {avg_student_grade:.1f}')
+print(f'Г‘Г°ГҐГ¤Г­ГїГї Г®Г¶ГҐГ­ГЄГ  Г«ГҐГЄГІГ®Г°Г®Гў Г§Г  Г¤Г®Г¬Г ГёГ­ГЁГҐ Г§Г Г¤Г Г­ГЁГї: {avg_lecturer_grade:.1f}')
 
-# Сравнение студентов и лекторов
-print(f'\nСравнение студентов:')
+# Г‘Г°Г ГўГ­ГҐГ­ГЁГҐ Г±ГІГіГ¤ГҐГ­ГІГ®Гў ГЁ Г«ГҐГЄГІГ®Г°Г®Гў
+print(f'\nГ‘Г°Г ГўГ­ГҐГ­ГЁГҐ Г±ГІГіГ¤ГҐГ­ГІГ®Гў:')
 if student1 > student2:
-    print(f'{student1.surname} {student1.name} лучше чем {student2.surname} {student2.name}')
+    print(f'{student1.surname} {student1.name} Г«ГіГ·ГёГҐ Г·ГҐГ¬ {student2.surname} {student2.name}')
 if student2 > student1:
-    print(f'{student2.surname} {student2.name} лучше чем {student1.surname} {student1.name}')
+    print(f'{student2.surname} {student2.name} Г«ГіГ·ГёГҐ Г·ГҐГ¬ {student1.surname} {student1.name}')
 
-print(f'\nСравнение лекторов:')
+print(f'\nГ‘Г°Г ГўГ­ГҐГ­ГЁГҐ Г«ГҐГЄГІГ®Г°Г®Гў:')
 if lecturer1 > lecturer2:
-    print(f'{lecturer1.surname} {lecturer1.name} лучше чем {lecturer2.surname} {lecturer2.name}')
+    print(f'{lecturer1.surname} {lecturer1.name} Г«ГіГ·ГёГҐ Г·ГҐГ¬ {lecturer2.surname} {lecturer2.name}')
 if lecturer2 > lecturer1:
-    print(f'{lecturer2.surname} {lecturer2.name} лучше чем {lecturer1.surname} {lecturer1.name}')
+    print(f'{lecturer2.surname} {lecturer2.name} Г«ГіГ·ГёГҐ Г·ГҐГ¬ {lecturer1.surname} {lecturer1.name}')
