@@ -2,7 +2,7 @@
 [cook_book.py](https://github.com/danroman-github/desktop-tutorial/blob/main/Opening%20and%20reading%20a%20file/cook_book.py) 
 
 Программа читает список рецептов из файла [recipes.txt](https://github.com/danroman-github/desktop-tutorial/blob/main/Opening%20and%20reading%20a%20file/recipes.txt)
-файл recipes.txt должен располагаться в папке с программой.
+, который должен располагаться в папке с программой.
 
 для указанных блюд и количества персон, создает словарь с названием ингридиентов и их количества.
 
