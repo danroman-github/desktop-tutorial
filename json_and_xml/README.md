@@ -1,18 +1,6 @@
-# Программа для кулинарной книги 
-[cook_book.py](https://github.com/danroman-github/desktop-tutorial/blob/main/Opening%20and%20reading%20a%20file/cook_book.py) 
+# Программы для вывода топ 10 самых часто встречающихся в новостях слов длиннее 6 символов 
+[frequency_word_json.py](https://github.com/danroman-github/desktop-tutorial/blob/main/json_and_xml/frequency_word_json.py)
+из файла [newsafr.json](https://github.com/danroman-github/desktop-tutorial/blob/main/json_and_xml/newsafr.json)
 
-Программа читает список рецептов из файла [recipes.txt](https://github.com/danroman-github/desktop-tutorial/blob/main/Opening%20and%20reading%20a%20file/recipes.txt)
-, который должен располагаться в папке с программой.
-
-для указанных блюд и количества персон, создает словарь с названием ингридиентов и их количества.
-
-# Программа [merge.py](https://github.com/danroman-github/desktop-tutorial/blob/main/Opening%20and%20reading%20a%20file/merge.py) объединение файлов 
-[1.txt](https://github.com/danroman-github/desktop-tutorial/blob/main/Opening%20and%20reading%20a%20file/1.txt), 
-[2.txt](https://github.com/danroman-github/desktop-tutorial/blob/main/Opening%20and%20reading%20a%20file/2.txt), 
-[3.txt](https://github.com/danroman-github/desktop-tutorial/blob/main/Opening%20and%20reading%20a%20file/3.txt)
-все файлы должны располагаться в папке с программой.
-
-по определенным правилам в файл [sorted.txt](https://github.com/danroman-github/desktop-tutorial/blob/main/Opening%20and%20reading%20a%20file/sorted.txt).
-- содержимое исходных файлов в результирующем файле должно быть отсортировано по количеству строк в них
-  (то есть первым нужно записать файл с наименьшим количеством строк, а последним - с наибольшим)
-- содержимое файла должно предваряться служебной информацией на 2-х строках: имя файла и количество строк в нем
+[frequency_word_xml.py](https://github.com/danroman-github/desktop-tutorial/blob/main/json_and_xml/frequency_word_xml.py)
+из файла [newsafr.xml](https://github.com/danroman-github/desktop-tutorial/blob/main/json_and_xml/newsafr.xml)
