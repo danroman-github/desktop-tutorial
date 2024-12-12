@@ -10,7 +10,7 @@
 [1.txt](https://github.com/danroman-github/desktop-tutorial/blob/main/Opening%20and%20reading%20a%20file/1.txt), 
 [2.txt](https://github.com/danroman-github/desktop-tutorial/blob/main/Opening%20and%20reading%20a%20file/2.txt), 
 [3.txt](https://github.com/danroman-github/desktop-tutorial/blob/main/Opening%20and%20reading%20a%20file/3.txt)
-все файлы должны располагаться в папке с программой.
+(все файлы должны располагаться в папке с программой).
 
 по определенным правилам в файл [sorted.txt](https://github.com/danroman-github/desktop-tutorial/blob/main/Opening%20and%20reading%20a%20file/sorted.txt).
 - содержимое исходных файлов в результирующем файле должно быть отсортировано по количеству строк в них
