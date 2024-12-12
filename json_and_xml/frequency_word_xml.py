@@ -6,7 +6,7 @@ def fetch_words(news_list):
 
     for line in news_list:
         text = line.find('description').text
-        word_list = text.lower().split()
+        word_list = text.split()
 
         for word in word_list:
 
