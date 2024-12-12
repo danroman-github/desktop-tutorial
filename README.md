@@ -1,5 +1,7 @@
-# Welcome to GitHub Desktop!
+# Мои работы:
 
-This is your README. READMEs are where you can communicate what your project is and how to use it.
+[Opening and reading a file](https://github.com/danroman-github/desktop-tutorial/blob/main/Opening%20and%20reading%20a%20file/README.md)
 
-Write your name on line 6, save it, and then head back to GitHub Desktop.
+[json_and_xml](https://github.com/danroman-github/desktop-tutorial/blob/main/json_and_xml/README.md)
+
+[Encapsulation](https://github.com/danroman-github/desktop-tutorial/blob/main/Encapsulation.py)
