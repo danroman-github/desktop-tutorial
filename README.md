@@ -4,4 +4,4 @@
 
 [json_and_xml](https://github.com/danroman-github/desktop-tutorial/blob/main/json_and_xml/README.md)
 
-[Encapsulation](https://github.com/danroman-github/desktop-tutorial/blob/main/Encapsulation.py)
+[Encapsulation](https://github.com/danroman-github/desktop-tutorial/blob/main/Encapsulation/README.md)
