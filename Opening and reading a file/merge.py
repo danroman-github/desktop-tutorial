@@ -1,33 +1,28 @@
-# Функция создания сортированного списка
-def sorted_files(list_files):
-    file_date = []
-
-    for file_name in list_files:
-
-        with open(file_name, 'r', encoding='utf-8') as f:
-            content = f.read()
-            len_content = len(content.splitlines())
-            file_date.append((file_name, len_content, content))
-
-    file_date.sort(key=lambda x: x[1])
-    return file_date
+import os
 
 
 # Функция создания сортированного списка
 def merging_files(list_files, merge_file):
-    file_date = sorted_files(list_files)
+    """Объединяет содержимое файлов, отсортированных по количеству строк."""
+    file_data = []
+    for file_name in list_files:
+        if not os.path.exists(file_name):
+            print(f"Файл {file_name} не найден. Пропускаем.")
+            continue
+
+        with open(file_name, 'r', encoding='utf-8') as f:
+            content = f.readlines()
+            file_data.append((file_name, len(content), ''.join(content)))
+
+    file_data.sort(key=lambda x: x[1])
 
     with open(merge_file, 'w', encoding='utf-8') as f:
-
-        for file_name, len_content, content in file_date:
-            f.write(f'{file_name}\n')
-            f.write(f'{len_content}\n')
-            f.write(f'{content}\n')
-
-    return file_date
+        for file_name, len_content, content in file_data:
+            f.write(f'{file_name}\n{len_content}\n{content}\n')
+    print(f'Файлы успешно объединены в {merge_file}')
 
 
 list_files = ['1.txt', '2.txt', '3.txt']
 merge_file = 'sorted.txt'
 merging_files(list_files, merge_file)
-print(f'Файлы успешно объединены в {merge_file}')
+

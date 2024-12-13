@@ -1,67 +1,66 @@
+import os
 import pprint
 
-# Функция подсчета строк
-def count_lines(recipes):
-    with open(recipes) as f:
-        content = f.read()
-        len_f = content.count('\n')
-        return len_f
 
+def create_cook_book(file_name):
+    """Создаёт словарь рецептов из файла."""
+    cook_book = {}
+    if not os.path.exists(file_name):
+        raise FileNotFoundError(f"Файл {file_name} не найден.")
 
-def create_cook_book(recipes):
-
-    with open(recipes) as f:
-        len_f = count_lines(recipes)
-        cook_book = {}
-        counter = 0
-
-        while counter < len_f:
+    with open(file_name,'r', encoding='utf-8') as f:
+        while True:
             dish = f.readline().strip()
-            counter += 1
 
-            if dish:
+            if not dish:
+                break
+            try:
                 quantity = int(f.readline().strip())
-                counter += 1
-                ingredients = []
+            except ValueError:
+                raise ValueError(f"Ошибка в формате файла рецептов для блюда {dish}")
 
-                for _ in range(quantity):
-                    ing_line = f.readline().strip()
+            ingredients = []
+
+            for _ in range(quantity):
+                ing_line = f.readline().strip()
+                try:
                     name, quantity, measure = map(str.strip, ing_line.split('|'))
-                    counter += 1
-                    ingredients.append({
-                        'ingredient_name': name,
-                        'quantity': int(quantity),
-                        'measure': measure
-                    })
+                except ValueError:
+                    raise ValueError(f"Ошибка в строке ингридиента: {ing_line}")
 
-                cook_book[dish] = ingredients
-            else:
-                counter += 1
+                ingredients.append({
+                    'ingredient_name': name,
+                    'quantity': int(quantity),
+                    'measure': measure
+                })
+
+            cook_book[dish] = ingredients
+            f.readline()
     return cook_book
 
 
 def get_shop_list_by_dishes(dishes, person_count, cook_book):
+    """Расчёт ингредиентов для заданных блюд на указанное количество персон."""
     shop_list = {}
-
     for dish in dishes:
-
-        if dish in cook_book:
+        if dish not in cook_book:
+            print(f"Блюдо '{dish}' отсутствует в книге рецептов.")
+            continue
             
-            for ingredient in cook_book[dish]:
-                quantity = ingredient['quantity'] * person_count
-
-                if ingredient['ingredient_name'] in shop_list:
-                    shop_list[ingredient['ingredient_name']]['quantity'] += quantity
-                else:
-                    shop_list[ingredient['ingredient_name']] = {
-                        'quantity': quantity,
-                        'measure': ingredient['measure']
-                    }
-
+        for ingredient in cook_book[dish]:
+            name  = ingredient['ingredient_name']
+            if name in shop_list:
+                shop_list[name]['quantity'] += ingredient['quantity'] * person_count
+            else:
+                shop_list[name] = {
+                    'quantity': ingredient['quantity'] * person_count,
+                    'measure': ingredient['measure']
+                }
     return shop_list
 
 
-cook_book = create_cook_book('recipes.txt')
+recipes = 'recipes.txt'
+cook_book = create_cook_book(recipes)
 pprint.pprint(cook_book)
 
 dishes = ['Запеченный картофель', 'Омлет']
