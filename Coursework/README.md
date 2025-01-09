@@ -11,8 +11,9 @@
 
 {
 
-  "file_name": "34.jpg",
-  "size": "z"
+"file_name": "34.jpg",
+"size": "z"
+
 }
 
 '''
