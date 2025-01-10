@@ -66,7 +66,7 @@ class Courseword():
         if 'response' in data and isinstance(data['response'], dict):
             albums = data['response']['items']
             for album in albums:
-                if album['id'] == int(album_id):
+                if str(album['id']) == str(album_id):
                     return album['title']
         return None
 
@@ -173,17 +173,20 @@ class Courseword():
 
     def run(self):
         """Основной метод для начала резервного копирования."""
-        album_id = input("Введите ID альбома (по умолчанию 'profile'): ") or 'profile'
+        album_input = input("Введите ID альбома (по умолчанию 'profile'): ") or 'profile'
 
-        # Получаем название альбома по ID, если введен альбом не 'profile'
-        album_title = self.get_album_info(album_id)
-        if album_title:
-            self.disk_folder = album_title
+        # Проверка на специальные альбомы и получение названия альбома по ID
+        if album_input in ['wall', 'profile', 'saved']:
+            self.disk_folder = album_input
         else:
-            self.disk_folder = album_id
+            album_title = self.get_album_info(album_input)
+            if album_title:
+                self.disk_folder = album_title
+            else:
+                self.disk_folder = album_input
 
         self.create_yandex_disk_folder(self.disk_folder)
-        photos = self.get_photos(album_id)
+        photos = self.get_photos(album_input)
 
 
         if not photos:
