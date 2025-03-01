@@ -4,7 +4,7 @@
 
 Разработать структуру программы «Бухгалтерия»:
 
-[main.py](/main.py)
+[main.py](/Professional_Python/Import.%20Module.%20Package/main.py)
 
 main.py;
 application/salary.py;
