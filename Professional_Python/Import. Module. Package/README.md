@@ -1,4 +1,4 @@
-# Домашнее задание к лекции «Import. Module. Package»
+# Задание к лекции «Import. Module. Package»
 
 ## Задание 1
 
