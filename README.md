@@ -19,3 +19,7 @@
 [Python_и_БД._ORM](https://github.com/danroman-github/desktop-tutorial/tree/main/Databases/Python%20и%20БД.%20ORM).
 
 [Итоговая работа по модулю](https://github.com/danroman-github/desktop-tutorial/tree/main/Databases/).
+
+## Профессиональная работа с Python
+
+[Import. Module. Package](https://github.com/danroman-github/desktop-tutorial/tree/main/Databases/PostgreSQL%20from%20Python).
