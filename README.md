@@ -22,4 +22,4 @@
 
 ## Профессиональная работа с Python
 
-[Import. Module. Package](https://github.com/danroman-github/desktop-tutorial/tree/main/Databases/PostgreSQL%20from%20Python).
+[Import. Module. Package](https://github.com/danroman-github/desktop-tutorial/tree/main/Professional_Python/Import.%20Module.%20Package).
