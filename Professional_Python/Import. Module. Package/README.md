@@ -20,70 +20,15 @@ Main.py — основной модуль для запуска программ
 if __name__ == '__main__':
 ```
 
-Напишите Python-скрипт, который:
+Сами функции реализовывать не нужно. Достаточно добавить туда какой-либо вывод.
 
-- подключается к БД любого типа на ваш выбор, например, к PostgreSQL;
-- импортирует необходимые модели данных;
-- принимает имя или идентификатор издателя (publisher), например, через `input()`. Выводит построчно факты покупки книг этого издателя:
+## Задание 3
 
-```
-название книги | название магазина, в котором была куплена эта книга | стоимость покупки | дата покупки
-```
+Познакомиться с модулем datetime. При вызове функций модуля main.py выводить текущую дату.
 
-Пример (было введено имя автора — `Пушкин`):
+## Задание 4
 
-```
-Капитанская дочка | Буквоед     | 600 | 09-11-2022
-Руслан и Людмила  | Буквоед     | 500 | 08-11-2022
-Капитанская дочка | Лабиринт    | 580 | 05-11-2022
-Евгений Онегин    | Книжный дом | 490 | 02-11-2022
-Капитанская дочка | Буквоед     | 600 | 26-10-2022
-```
-
-## Задание 3 (необязательное)
-
-Заполните БД тестовыми данными.
-
-Тестовые данные берутся из папки `fixtures`. Пример содержания в JSON-файле.
-
-Возможная реализация: прочитать JSON-файл, создать соотведствующие экземляры моделей и сохранить в БД.
-
-<details>
-
-<summary>Пример реализации, но сначала попытайтесь самостоятельно ;)</summary>
-
-```python
-import json
-
-import sqlalchemy
-from sqlalchemy.orm import sessionmaker
-
-from models import create_tables, Publisher, Shop, Book, Stock, Sale
-
-
-DSN = '...'
-engine = sqlalchemy.create_engine(DSN)
-create_tables(engine)
-
-Session = sessionmaker(bind=engine)
-session = Session()
-
-with open('fixtures/tests_data.json', 'r') as fd:
-    data = json.load(fd)
-
-for record in data:
-    model = {
-        'publisher': Publisher,
-        'shop': Shop,
-        'book': Book,
-        'stock': Stock,
-        'sale': Sale,
-    }[record.get('model')]
-    session.add(model(id=record.get('pk'), **record.get('fields')))
-session.commit()
-```
-
-</details>
+Найти интересный для себя пакет на pypi и в файле [requirements.txt](/Professional_Python/Import.%20Module.%20Package/requirements.txt) указать его с актуальной версией. При желании можно написать программу с этим пакетом.
 
 ## Общие советы
 
