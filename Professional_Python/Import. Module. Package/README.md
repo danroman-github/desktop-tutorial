@@ -4,7 +4,8 @@
 
 Разработать структуру программы «Бухгалтерия»:
 
-![](readme/book_publishers_scheme.png)
+[main.py](/main.py)
+
 main.py;
 application/salary.py;
 application/db/people.py.
