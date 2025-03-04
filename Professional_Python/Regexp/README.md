@@ -17,6 +17,10 @@ lastname,firstname,surname,organization,position,phone,email
 
 3) Объединить все дублирующиеся записи о человеке в одну.
 
+Структура кода файла [main.py](/Professional_Python/Regexp/main.py)
+
+Результат в файле [phonebook.csv](/Professional_Python/Regexp/phonebook.csv)
+
 ```python
 from pprint import pprint
 # читаем адресную книгу в формате CSV в список contacts_list
