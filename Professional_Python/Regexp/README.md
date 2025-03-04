@@ -1,39 +1,35 @@
-# Задание «Import. Module. Package»
+# Задание «Regular expressions»
+## Задача
 
-## Задание 1
+Привести в порядок адресную книгу [phonebook_raw.csv](/Professional_Python/Regexp/phonebook_raw.csv), используя регулярные выражения.
+Структура данных будет всегда такая:
+lastname,firstname,surname,organization,position,phone,email
 
-Разработать структуру программы «Бухгалтерия»:
+Предполагается, что:
 
-[main.py](/Professional_Python/Import.%20Module.%20Package/main.py)
+-телефон и e-mail у одного человека может быть только один;
 
-[application/salary.py](/Professional_Python/Import.%20Module.%20Package/application/salary.py)
+-если совпали одновременно Фамилия и Имя, это точно один и тот же человек (даже если не указано его отчество).
 
-[application/db/people.py](/Professional_Python/Import.%20Module.%20Package/application/db/people.py)
+1) Поместить Фамилию, Имя и Отчество человека в поля lastname, firstname и surname соответственно. В записной книжке изначально может быть Ф + ИО, ФИО, а может быть сразу правильно: Ф+И+О.
 
-Main.py — основной модуль для запуска программы. В модуле salary.py функция calculate_salary. В модуле people.py функция get_employees.
+2) Привести все телефоны в формат +7(999)999-99-99. Если есть добавочный номер, формат будет такой: +7(999)999-99-99 доб.9999.
 
-## Задание 2
-
-Импортировать функции в модуль main.py и вызывать эти функции в конструкции.
-
-```python
-if __name__ == '__main__':
-```
-
-Сами функции реализовывать не нужно. Достаточно добавить туда какой-либо вывод.
-
-## Задание 3
-
-Познакомиться с модулем datetime. При вызове функций модуля main.py выводить текущую дату.
-
-## Задание 4
-
-Найти интересный для себя пакет на pypi (выбран loguru) и в файле [requirements.txt](/Professional_Python/Import.%20Module.%20Package/requirements.txt) указать его с актуальной версией. При желании можно написать программу с этим пакетом.
-
-## Задание 5
-
-Создать рядом с файлом main.py модуль [dirty_main.py](/Professional_Python/Import.%20Module.%20Package/dirty_main.py) и импортировать все функции с помощью конструкции
+3) Объединить все дублирующиеся записи о человеке в одну.
 
 ```python
-from package.module import *
+from pprint import pprint
+# читаем адресную книгу в формате CSV в список contacts_list
+import csv
+with open("phonebook_raw.csv", encoding="utf-8") as f:
+  rows = csv.reader(f, delimiter=",")
+  contacts_list = list(rows)
+pprint(contacts_list)
+
+# ваш код
+
+with open("phonebook.csv", "w", encoding="utf-8") as f:
+  datawriter = csv.writer(f, delimiter=',')
+  # Вместо contacts_list подставьте свой список
+  datawriter.writerows(contacts_list)
 ```
