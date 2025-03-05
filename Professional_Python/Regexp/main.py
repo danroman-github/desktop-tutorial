@@ -5,86 +5,74 @@ from collections import defaultdict
 
 # читаем адресную книгу в формате CSV в список contacts_list
 with open("phonebook_raw.csv", encoding="utf-8") as f:
-	rows = csv.reader(f, delimiter=",")
-	contacts_list = list(rows)
+    rows = csv.reader(f, delimiter=",")
+    contacts_list = list(rows)
+
 
 def split_full_name(contact):
-	"""Нормализует фамилию, имя и отчество на основе входных данных."""
-
-	# Заполним первичными данными
-	lastname = contact[0].strip() if len(contact) > 0 else ''
-	firstname = contact[1].strip() if len(contact) > 1 else ''
-	surname = contact[2].strip() if len(contact) > 2 else ''
-
-	# Разделение ФИО на фамилию, имя и отчество
-	full_name = contact[0].strip().split(" ")
-	incomplete_name = contact[1].strip().split(" ")
-
-	if len(full_name) > 2:  # Убедимся, что есть фамилия и имя и отчество
-		lastname = full_name[0].strip() if len(full_name) > 0 else ''
-		firstname = full_name[1].strip() if len(full_name) > 1 else ''
-		surname = full_name[2].strip() if len(full_name) > 2 else ''
-	elif len(full_name) > 1: # Убедимся, что есть фамилия и имя
-		lastname = full_name[0].strip() if len(full_name) > 0 else ''
-		firstname = full_name[1].strip() if len(full_name) > 1 else ''
-	elif len(incomplete_name) > 1: # Убедимся, что есть имя и отчество
-		firstname = incomplete_name[0].strip() if len(incomplete_name) > 0 else ''
-		surname = incomplete_name[1].strip() if len(incomplete_name) > 1 else ''
-
-	return lastname, firstname, surname
+    """Нормализует фамилию, имя и отчество на основе входных данных."""
+    full_name = ' '.join(contact[:3]).split()
+    return (full_name[0] if len(full_name) > 0 else '',
+            full_name[1] if len(full_name) > 1 else '',
+            full_name[2] if len(full_name) > 2 else '')
 
 def normalize_phone(phone):
-	"""Нормализует номер телефона в формат +7(XXX)XXX-XX-XX доб.XXX."""
-	phone = re.sub(r'\D', '', phone)  # Убираем все нечисловые символы
-	if phone.startswith('8'):
-		phone = phone.replace('8', '7', 1)  # Заменяем '8' на '7'
+    """Нормализует номер телефона в формат +7(XXX)XXX-XX-XX доб.XXX."""
+    phone = re.sub(r'\D', '', phone)  # Убираем все нечисловые символы
+    if phone.startswith('8'):
+        phone = phone.replace('8', '7', 1)  # Заменяем '8' на '7'
 
-	if len(phone) == 11:  # Если номер состоит из 11 цифр
-		return f'+7({phone[1:4]}){phone[4:7]}-{phone[7:9]}-{phone[9:]}'
-	elif len(phone) > 11:
-		add_on = re.search(r'(\d+)', phone[11:])  # Ищем добавочный номер
-	if add_on:
-		ext_number = add_on.group(0)
-		return f'+7({phone[1:4]}){phone[4:7]}-{phone[7:9]}-{phone[9:11]} доб.{ext_number}'
+    add_on = None
 
-	return phone
+    if len(phone) == 11:  # Если номер состоит из 11 цифр
+        return f'+7({phone[1:4]}){phone[4:7]}-{phone[7:9]}-{phone[9:]}'
+    elif len(phone) > 11:
+        add_on = re.search(r'(\d+)', phone[11:])  # Ищем добавочный номер
+
+        if add_on:
+            ext_number = add_on.group(0)
+            return f'+7({phone[1:4]}){phone[4:7]}-{phone[7:9]}-{phone[9:11]} доб.{ext_number}'
+
+    return phone
+
 
 def normalize_contacts(contacts):
-	"""Функция нормализации данных адресной книги."""
-	unique_contacts = defaultdict(lambda: [None, None, None, None, None, None, None])
+    """Функция нормализации данных адресной книги."""
+    unique_contacts = defaultdict(lambda: [None, None, None, None, None, None, None])
 
-	for contact in contacts:
-		if len(contact) >= 6:
-			lastname, firstname, surname = split_full_name(contact)
+    for contact in contacts:
+        # if len(contact) >= 6:
+        lastname, firstname, surname = split_full_name(contact)
 
-			organization = contact[3].strip() if len(contact) > 3 else ''
-			position = contact[4].strip() if len(contact) > 4 else ''
-			phone = contact[5].strip() if len(contact) > 5 else ''
-			email = contact[6].strip() if len(contact) > 6 else ''
+        organization = contact[3].strip() if len(contact) > 3 else ''
+        position = contact[4].strip() if len(contact) > 4 else ''
+        phone = contact[5].strip() if len(contact) > 5 else ''
+        email = contact[6].strip() if len(contact) > 6 else ''
 
-			# Нормализация телефона
-			phone = normalize_phone(phone)
+        # Нормализация телефона
+        phone = normalize_phone(phone)
 
-			# Ключ для объединения: фамилия + имя
-			key = (lastname, firstname)
+        # Ключ для объединения: фамилия + имя
+        key = (lastname, firstname)
 
-		# Обновляем данные в уникальном словаре
-		if unique_contacts[key][0] is None:
-			unique_contacts[key] = [lastname, firstname, surname, organization, position, phone, email]
-		else:
-			# Обновляем данные, если они есть и непустые
-			unique_contacts[key][2] = surname or unique_contacts[key][2]
-			unique_contacts[key][3] = organization or unique_contacts[key][3]
-			unique_contacts[key][4] = position or unique_contacts[key][4]
-			unique_contacts[key][5] = phone or unique_contacts[key][5]
-			unique_contacts[key][6] = email or unique_contacts[key][6]
+        # Обновляем данные в уникальном словаре
+        if unique_contacts[key][0] is None:
+            unique_contacts[key] = [lastname, firstname, surname, organization, position, phone, email]
+        else:
+            # Обновляем данные, если они есть и непустые
+            unique_contacts[key][2] = surname or unique_contacts[key][2]
+            unique_contacts[key][3] = organization or unique_contacts[key][3]
+            unique_contacts[key][4] = position or unique_contacts[key][4]
+            unique_contacts[key][5] = phone or unique_contacts[key][5]
+            unique_contacts[key][6] = email or unique_contacts[key][6]
 
-	normalized_contacts = list(unique_contacts.values())
-	return normalized_contacts
+    normalized_contacts = list(unique_contacts.values())
+    return normalized_contacts
+
 
 normalized_contacts = normalize_contacts(contacts_list)
 pprint(normalized_contacts)
 
 with open("phonebook.csv", "w", newline='', encoding="utf-8") as f:
-	datawriter = csv.writer(f, delimiter=',')
-	datawriter.writerows(normalized_contacts)
+    datawriter = csv.writer(f, delimiter=',')
+    datawriter.writerows(normalized_contacts)
