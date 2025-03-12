@@ -16,9 +16,7 @@ KEYWORDS = ['дизайн', 'фото', 'web', 'python']
 ## Код
 ```
 
-Код [main.py](/Professional_Python/Web-scrapping/main.py)
-
-Результат [articles.json](/Professional_Python/Web-scrapping/articles.json)
+Код [main.py](/Professional_Python/Web-scrapping/main.py) Результат [articles.json](/Professional_Python/Web-scrapping/articles.json)
 
 ## Задание 2
 
@@ -26,7 +24,5 @@ KEYWORDS = ['дизайн', 'фото', 'web', 'python']
 
 Для этого потребуется получать страницы статей и искать по тексту внутри этой страницы.
 
-Код [improved.py](/Professional_Python/Web-scrapping/improved.py)
-
-Результат [improved.json](/Professional_Python/Web-scrapping/improved.json)
+Код [improved.py](/Professional_Python/Web-scrapping/improved.py) Результат [improved.json](/Professional_Python/Web-scrapping/improved.json)
 
