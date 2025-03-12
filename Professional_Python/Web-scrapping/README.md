@@ -10,11 +10,11 @@
 <дата> – <заголовок> – <ссылка>.
 
 ```python
-## Определяем список ключевых слов:
+# Определяем список ключевых слов:
 
 KEYWORDS = ['дизайн', 'фото', 'web', 'python']
 
-## Код
+# Код
 ```
 
 Код [main.py](/Professional_Python/Web-scrapping/main.py) Результат [articles.json](/Professional_Python/Web-scrapping/articles.json)
