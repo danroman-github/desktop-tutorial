@@ -43,7 +43,7 @@ if __name__ == '__main__':
     test_1()
 ```
 
-[main_one.py](/Professional_Python/Import.%20Module.%20Package/main_one.py)
+[main_one.py](/Professional_Python/Iterators.%20Generators.%20Yield/main_one.py)
 
 
 ## Задание 2
