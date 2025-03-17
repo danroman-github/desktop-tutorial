@@ -1,9 +1,9 @@
 # Задание «Iterators. Generators. Yield»
 
-
-[main_one.py](/Professional_Python/Iterators.%20Generators.%20Yield/main_one.py)
-[main_two.py](/Professional_Python/Iterators.%20Generators.%20Yield/main_two.py)
-[main_three.py](/Professional_Python/Iterators.%20Generators.%20Yield/main_three.py)
+Решения 
+[main_one.py](/Professional_Python/Iterators.%20Generators.%20Yield/main_one.py) /
+[main_two.py](/Professional_Python/Iterators.%20Generators.%20Yield/main_two.py) /
+[main_three.py](/Professional_Python/Iterators.%20Generators.%20Yield/main_three.py) /
 [main_four.py](/Professional_Python/Iterators.%20Generators.%20Yield/main_four.py)
 
 ## Задание 1
