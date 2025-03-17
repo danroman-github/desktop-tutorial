@@ -27,3 +27,5 @@
 [Regular expressions](https://github.com/danroman-github/desktop-tutorial/tree/main/Professional_Python/Regexp).
 
 [Web-scrapping](https://github.com/danroman-github/desktop-tutorial/tree/main/Professional_Python/Web-scrapping)
+
+[Iterators. Generators. Yield](https://github.com/danroman-github/desktop-tutorial/tree/main/Professional_Python/Iterators.%20Generators.%20Yield)
