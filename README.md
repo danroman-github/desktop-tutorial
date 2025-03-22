@@ -18,7 +18,7 @@
 
 [Python_и_БД._ORM](https://github.com/danroman-github/desktop-tutorial/tree/main/Databases/Python%20и%20БД.%20ORM).
 
-[Итоговая работа по модулю](https://github.com/danroman-github/desktop-tutorial/tree/main/Databases/).
+[Итоговая работа по модулю](https://github.com/danroman-github/desktop-tutorial/tree/main/Databases/Final%20work%20of%20DB).
 
 ## Профессиональная работа с Python
 
