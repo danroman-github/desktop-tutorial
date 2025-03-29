@@ -2,7 +2,7 @@
 
 ## Задача 1. Unit-tests
 
-Нужно протестировать [программу](/Professional_Python/Various_tests/main_one.py) по работе с бухгалтерией
+Нужно про[тест](/Professional_Python/Various_tests/tests/test_main_one.py)ировать [программу](/Professional_Python/Various_tests/main_one.py) по работе с бухгалтерией
 
 - Следует протестировать основные функции по получению информации о документах, 
 добавлении и удалении элементов из словаря.
