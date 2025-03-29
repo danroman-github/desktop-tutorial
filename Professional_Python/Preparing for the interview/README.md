@@ -9,7 +9,7 @@
 - peek — возвращает верхний элемент стека, но не удаляет его. Стек не меняется;
 - size — возвращает количество элементов в стеке.
 
-Решение [main_one.py](/Professional_Python/Decorators/main_one.py)
+Решение [main_one.py](/Professional_Python/Preparing%20for%20the%20interview/main_one.py)
 
 ## Задача 2.
 
@@ -26,4 +26,4 @@
 [[{())}]
 Программа ожидает на вход строку со скобками. На выход сообщение: «Сбалансированно», если строка корректная, и «Несбалансированно», если строка составлена неверно.
 
-Решение [main_two.py](/Professional_Python/Decorators/main_two.py)
+Решение [main_two.py](/Professional_Python/Preparing%20for%20the%20interview/main_two.py)
