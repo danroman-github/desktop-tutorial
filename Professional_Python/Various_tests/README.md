@@ -61,7 +61,7 @@ def add_new_document(document_type, number, name, shelf_number):
 
 ## Задача 2. Автотест API Яндекса
 
-Проверим правильность работы Яндекс Диск REST API. Напишите тесты, проверяющие создание папки на Диске.
+Проверим правильность работы Яндекс Диск REST API. Напишите [тесты](/Professional_Python/Various_tests/tests/test_main_two.py), проверяющие создание папки на Диске.
 Используя библиотеку requests, напишите unit-test на верный ответ и возможные отрицательные тесты на ответы с ошибкой.
 
 Пример положительных тестов:
@@ -69,7 +69,6 @@ def add_new_document(document_type, number, name, shelf_number):
 - код ответа соответствует 200;
 - результат создания папки — папка появилась в списке файлов.
 
-Замените в коде "Введите сюда токен ЯндексДиска" на ваш Яндекс токен.
+## Замените в коде "Введите сюда токен ЯндексДиска" на ваш Яндекс токен.
 
-Код [improved.py](/Professional_Python/Web-scrapping/improved.py) Результат [improved.json](/Professional_Python/Web-scrapping/improved.json)
 
