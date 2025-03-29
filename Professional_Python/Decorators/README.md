@@ -134,7 +134,7 @@ if __name__ == '__main__':
 
 Код [logger_two.py](/Professional_Python/Decorators/logger_two.py)
 
-## Задача 2.
+## Задача 3.
 
 Применить написанный [логгер](/Professional_Python/Decorators/logger_three.py) к приложению из любого предыдущего д/з.
 
