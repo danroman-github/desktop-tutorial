@@ -29,3 +29,9 @@
 [Web-scrapping](https://github.com/danroman-github/desktop-tutorial/tree/main/Professional_Python/Web-scrapping)
 
 [Iterators. Generators. Yield](https://github.com/danroman-github/desktop-tutorial/tree/main/Professional_Python/Iterators.%20Generators.%20Yield)
+
+[Decorators](https://github.com/danroman-github/desktop-tutorial/tree/main/Professional_Python/Decorators)
+
+[Various_tests](https://github.com/danroman-github/desktop-tutorial/tree/main/Professional_Python/Various_tests)
+
+[Preparing for the interview](https://github.com/danroman-github/desktop-tutorial/tree/main/Professional_Python/Preparing%20for%20the%20interview)
